@@ -1,9 +1,8 @@
 import streamlit as st
 import pandas as pd
-import numpy as np
 import joblib
 from sklearn.svm import SVC
-from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import StandardScaler, LabelEncoder
 
 st.header('IBM Attrition Prediction')
 st.write("Please ensure that all information is filled out accurately and carefully to maintain professionalism and clarity.")
@@ -128,6 +127,6 @@ pred_data = ss.fit_transform(pred_data)
 if st.button('Predict'):
     prediction = loaded_model.predict(pred_data)
     if prediction == 0:
-        st.error('This employee is likely to stay.')
+        st.error('This employee is likely to stay.👍🏻')
     else:
-        st.success('This employee is likely to leave.')
+        st.success('This employee is likely to leave.👎🏻')
